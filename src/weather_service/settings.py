@@ -59,12 +59,6 @@ EMAIL_SENDER_EMAIL = "nareshh74@gmail.com"
 EMAIL_PASSWORD = "Naresh@9084"
 
 
-import asyncio
-import concurrent.futures
-EVENT_LOOP = asyncio.get_event_loop()
-THREAD_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=2)
-
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
