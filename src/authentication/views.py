@@ -18,5 +18,4 @@ class LogoutAPI(APIView):
 
     def post(self, request):
         settings.LOGOUT_USERS_SET.add(request.user.username)
-        print(settings.LOGOUT_USERS_SET)
         return JsonResponse({"detail": "success"}, status=200)

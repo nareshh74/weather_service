@@ -22,7 +22,6 @@ class WeatherRepository(object):
         result = {}
         # if not self.weather_data:
         json_file = open(self.json_file, "r")
-        print(json_file.name)
         self.weather_data = json.load(json_file)
         for city in self.cities_list[start_index: end_index + 1]:
             result[city] = self.weather_data[city]
@@ -35,7 +34,6 @@ class WeatherRepository(object):
         return len(self.cities_list)
 
     def sync(self):
-        print("sync start")
         try:
             self.weather_data = {}
             for city in self.cities_list:
@@ -50,7 +48,6 @@ class WeatherRepository(object):
         except Exception as e:
             traceback.print_exc()
             raise Exception("sync failed")
-        print("sync end")
 
     def _persist(self, weather_data):
 
