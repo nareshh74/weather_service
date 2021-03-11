@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+
+
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,8 +62,13 @@ MIDDLEWARE = [
 
 EMAIL_PORT = 465  # For SSL
 EMAIL_SMTP_SERVER = "smtp.gmail.com"
-EMAIL_SENDER_EMAIL = "nareshh74@gmail.com"
-EMAIL_PASSWORD = "Naresh@9084"
+EMAIL_SENDER_EMAIL = os.getenv("EMAIL_SENDER_EMAIL")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
+OPENWEATHER_API_ENDPOINT = os.getenv("OPENWEATHER_API_ENDPOINT")
+
+STATIC_FILES_PATH = "weather_app/static"
 
 LOGOUT_USERS_SET = set()
 

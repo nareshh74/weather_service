@@ -3,6 +3,7 @@ import os
 import requests
 from openpyxl import Workbook
 import traceback
+from django.conf import settings
 
 
 class WeatherRepository(object):
@@ -11,12 +12,11 @@ class WeatherRepository(object):
         # self.cities_list = ["Hong Kong", "Bangkok", "London", "Macau", "Singapore", "Paris", "Dubai", "New York", "Kuala Lumpur", "Istanbul", "Delhi", "Antalya", "Shenzhen",
         #                     "Mumbai", "Phuket", "Rome", "Tokyo", "Pattaya", "Taipei", "Mecca", "Guangzhou", "Prague", "Medina", "Seoul", "Amsterdam", "Agra", "Miami", "Osaka", "Las Vegas", "Shanghai"]
         self.cities_list = ["Hong Kong", "Bangkok", ]
-        self._persist_path = "weather_app/static"
         self.weather_data = {}
-        self.json_file = os.path.join(self._persist_path, "weather_data.json")
-        self.excel_file = os.path.join(self._persist_path, "weather_data.xlsx")
-        self.openweather_api_key = "261130fcaf6e6cfc4c902954d02f00b6"
-        self.openweather_api_endpoint = "http://api.openweathermap.org/data/2.5/weather"
+        self.json_file = os.path.join(settings.STATIC_FILES_PATH, "weather_data.json")
+        self.excel_file = os.path.join(settings.STATIC_FILES_PATH, "weather_data.xlsx")
+        self.openweather_api_key = settings.OPENWEATHER_API_KEY
+        self.openweather_api_endpoint = settings.OPENWEATHER_API_ENDPOINT
 
     def query(self, start_index, end_index):
         result = {}
