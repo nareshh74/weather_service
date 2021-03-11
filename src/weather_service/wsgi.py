@@ -37,7 +37,7 @@ def run_continuously(interval=1):
     return cease_continuous_run
 
 
-schedule.every(15).seconds.do(weather_repository.sync)
+schedule.every(30).minutes.do(weather_repository.sync)
 
 # Start the background thread
 stop_run_continuously = run_continuously()
