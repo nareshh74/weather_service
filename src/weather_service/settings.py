@@ -58,6 +58,8 @@ EMAIL_SMTP_SERVER = "smtp.gmail.com"
 EMAIL_SENDER_EMAIL = "nareshh74@gmail.com"
 EMAIL_PASSWORD = "Naresh@9084"
 
+LOGOUT_USERS_SET = set()
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

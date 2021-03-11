@@ -3,18 +3,18 @@ from weather_app.domain.email_service import EmailService
 from weather_app.domain.weather_repository import weather_repository
 import json
 from rest_framework.views import APIView 
-from rest_framework.permissions import IsAuthenticated 
+from authentication.permissions import IsLoggedIn
 
 
 # Create your views here.
 class WeatherAPI(APIView):
-    permission_classes = (IsAuthenticated, ) 
+    permission_classes = (IsLoggedIn, ) 
 
     def get(self, request):
         return get_weather_info(request._request)
 
 class EmailAPI(APIView):
-    permission_classes = (IsAuthenticated, ) 
+    permission_classes = (IsLoggedIn, ) 
 
     def get(self, request):
         return email_weather_info(request._request)
